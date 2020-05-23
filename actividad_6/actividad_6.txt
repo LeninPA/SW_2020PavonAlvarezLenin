@@ -1,0 +1,18 @@
+https://regex101.com/r/sFZcBt/1
+
+Regex:
+^\[\+672 \d{10}\] (Skipper|Kowalski|Cabo|Rico)
+
+Formato de coincidencias
+
+Coincidencia completa
+Nombre del pingüino
+
+[+672 7473935113] Rico
+Rico
+[+672 5345009331] Skipper
+Skipper
+[+672 8766764155] Kowalski
+Kowalski
+[+672 5085533408] Cabo
+Cabo
