@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Ayudadita</title>
+  </head>
+  <body>
+    <h1>Formulario</h1>
+    <form action="../dynamics/actividad7.php" method="post">
+      Nombre: <input type="text" name="nombre" value="" pattern="^[a-zA-z ñÑáAéÉíÍóÚ]+$" required> <br>
+      Apellido Paterno: <input type="text" name="paterno" value="" pattern="^[a-zA-z ñÑáAéÉíÍóÚ]+$" required> <br>
+      Apellido Materno: <input type="text" name="materno" value="" pattern="^[a-zA-z ñÑáAéÉíÍóÚ]+$" required> <br>
+      Fecha de nacimiento: <input type="date" name="fecha" value="" required> <br>
+      Colegio <select name="colegio" required>
+        <optgroup label="Área 1">
+          <option value="Física">Física</option>
+          <option value="Informática">Informática</option>
+          <option value="Matemáticas">Matemáticas</option>
+        </optgroup>
+        <optgroup label="Área 2">
+          <option value="Biología">Biología</option>
+          <option value="Educación Física">Educación Física</option>
+          <option value="Morfología, Fisiología y Salud">Morfología, Fisiología y Salud</option>
+          <option value="Orientación Educativa">Orientación Educativa</option>
+          <option value="Psicología e higiene mental">Psicología e higiene mental</option>
+          <option value="Química">Química</option>
+        </optgroup>
+        <optgroup label="Área 3">
+          <option value="Ciencias sociales">Ciencias sociales</option>
+          <option value="Geografía">Geografía</option>
+          <option value="Historia">Historia</option>
+        </optgroup>
+        <optgroup label="Área 4">
+          <option value="Alemán">Alemán</option>
+          <option value="Artes Plásticas">Artes Plásticas</option>
+          <option value="Danza">Danza</option>
+          <option value="Dibujo y Modelado">Dibujo y Modelado</option>
+          <option value="Filosofía">Filosofía</option>
+          <option value="Francés">Francés</option>
+          <option value="Inglés">Inglés</option>
+          <option value="Italiano">Italiano</option>
+          <option value="Letras Clásicas">Letras Clásicas</option>
+          <option value="Literatura">Literatura</option>
+          <option value="Música">Música</option>
+          <option value="Teatro">Teatro</option>
+        </optgroup>
+        <option value="ETE">Estudios Técnicos Especializados</option>
+      </select>
+      RFC <input type="text" name="RFC" value="" pattern="^[A-ZÑ&]{4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])[A-Z0-9_]{3}$" required>
+      <input type="submit" name="" value="Enviar">
+    </form>
+  </body>
+</html>
