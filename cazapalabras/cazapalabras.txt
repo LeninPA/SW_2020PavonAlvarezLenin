@@ -1,0 +1,28 @@
+Regex
+https://regex101.com/r/YEoPqW/1
+
+Formato de coincidencias
+
+Coincidencia completa
+Letra inicial
+
+regex
+r
+regex
+r
+regex
+r
+regex
+r
+Regex
+R
+Regex
+R
+regex
+r
+regex
+r
+Regex
+R
+Regex
+R
