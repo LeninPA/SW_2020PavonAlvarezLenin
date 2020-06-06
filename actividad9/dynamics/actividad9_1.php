@@ -1,4 +1,9 @@
 <?php
+  /* Este programa decifra un mensaje escrito con el abecedario
+  decrito a continuación, y que fue cifrado usando una palabra clave 
+  para trasposicionar el abecedario. Al término del proceso, imprime
+  los resultados */
+  //Abecedario
   $ABC=[
     "A",//0
     "B",
@@ -81,6 +86,7 @@
     "9",
     "0" //79
   ];
+  // Recepción de datos
   $recibo_clave = (isset($_POST['clave']) && $_POST['clave'] != "") ? $_POST['clave'] : false;
   $texto = (isset($_POST['mensaje']) && $_POST['mensaje'] != "") ? $_POST['mensaje'] : false;
   if ($recibo_clave !== false && $texto !== false) {
@@ -98,6 +104,7 @@
         $clave[] = $value;
       }
     }
+    // Cambio de los caracteres de la llave por sus caracteres
     foreach ($clave as $key => $value) {
       foreach ($ABC as $llave => $valor) {
         if ($value==$valor) {
@@ -105,11 +112,13 @@
         }
       }
     }
+    // VAriables auxiliares
     $len_clave = count($clave) - 1;
     $contador = 0;
     $aux = 0;
     $prohibidos = [];
     $ABCmod = [];
+    //Creación del abecedario modificado
     foreach ($ABC as $key => $value) {
       $identificador = -1;
       if($aux <= $len_clave)
@@ -131,7 +140,9 @@
         $contador++;
       }
     }
+    // Separación del texto
     $texto_separado = str_split($texto);
+    // Cambio del texto por sus etiquetas en el abecedario normal
     foreach ($texto_separado as $key => $value) {
       foreach ($ABC as $llave => $valor) {
         if ($value == $valor) {
@@ -139,6 +150,7 @@
         }
       }
     }
+    //Cambio de las etiquetas por los caracteres en el abecedario modificado
     foreach ($texto_separado as $key => $value) {
       foreach ($ABCmod as $llave => $valor) {
         if ($value==$llave) {
@@ -153,6 +165,7 @@
       }
     }
     $cifrado = implode($texto_separado);
+    //Impresión de resultaods
     echo "El mensaje cifrado es: <br> $cifrado <br>
           Tu <i>palabra clave</i> es: $recibo_clave <br>";
   }

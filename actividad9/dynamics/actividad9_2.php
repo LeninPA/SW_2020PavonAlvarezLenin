@@ -1,4 +1,9 @@
 <?php
+  /* Este programa decifra un mensaje escrito con el abecedario
+  decrito a continuación, y que fue cifrado usando una palabra clave 
+  para trasposicionar el abecedario. Al término del proceso, imprime
+  los resultados */
+  //Abecedario
   $ABC=[
     "A",//0
     "B",
@@ -81,6 +86,7 @@
     "9",
     "0" //79
   ];
+  //Recepción de datos
   $recibo_clave = (isset($_POST['clave']) && $_POST['clave'] != "") ? $_POST['clave'] : false;
   $texto = (isset($_POST['mensaje']) && $_POST['mensaje'] != "") ? $_POST['mensaje'] : false;
   if ($recibo_clave !== false && $texto !== false) {
@@ -98,6 +104,7 @@
         $clave[] = $value;
       }
     }
+    //Cambio de los caracteres de la llave por sus caracteres
     foreach ($clave as $key => $value) {
       foreach ($ABC as $llave => $valor) {
         if ($value==$valor) {
@@ -105,11 +112,13 @@
         }
       }
     }
+    //Variables auxiliares
     $len_clave = count($clave) - 1;
     $contador = 0;
     $aux = 0;
     $prohibidos = [];
     $ABCmod = [];
+    //Creación del abecedario modificado
     foreach ($ABC as $key => $value) {
       $identificador = -1;
       if($aux <= $len_clave)
@@ -131,8 +140,11 @@
         $contador++;
       }
     }
+    //Inicio de decifrado
+    //Separación del texto enviado
     $texto_separado = str_split($texto, 3);
     $caracteres = [];
+    //Eliminación de los ceros iniciales
     foreach($texto_separado as $key => $value)
     {
       $num_separado = str_split($value);
@@ -145,16 +157,19 @@
       }
       $caracteres[] = $textito;
     }
+    // Conversión de los caracteres numéricos a caracteres
     foreach ($caracteres as $key => $value) {
-      $unu = chr($value);
-      $caracteres[$key] = $unu;
+      $ascii = chr($value);
+      $caracteres[$key] = $ascii;
     }
     foreach ($caracteres as $key => $value) {
+      // Conversión de caracteres a etiquetas del abecedario modificado
       foreach ($ABCmod as $llave => $valor) {
         if($value == $valor){
           $caracteres[$key] = $llave;
         }
       }
+      // Conversión de etiquetas a caracteres del abecedario modificado
       foreach ($ABC as $llave => $valor) {
         if($caracteres[$key] == $llave){
           $caracteres[$key] = $valor;
@@ -162,6 +177,7 @@
       }
     }
     $decifrado = implode($caracteres);
+    // Impresión de resultados
     echo "El mensaje decifrado es: <br>".$decifrado."<br><br>";
   }
   else {
