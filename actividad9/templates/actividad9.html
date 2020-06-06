@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Uwu Cifrados</title>
+</head>
+<body>
+  <h1>¿Qué cifrado ofrecemos?</h1>
+  <p>
+    A comparación del cifrado césar, el cifrado con <i>palabra clave</i>
+    da una mayor seguridad frente a ataques de fuerza bruta.
+  </p>
+  <h2>¿Cómo funciona?</h2>
+  <p>
+    La característica principal de este cifrado es que al comienzo del
+    abecedario, se introduce la <i>palabra clave</i> de modo que el 
+    alfabeto queda distorisonado.
+  </p>
+  <h2>¿Por qué usar este método?</h2>
+  <p>
+    Tiene la ventaja de ser más seguro que un cifrado césar, al mismo 
+    tiempo que es sencillo de decifrar si tienes la clave, mientras que
+    es más difícil de decifrar.
+  </p>
+  <form action="../dynamics/actividad9_1.php" method="post">
+    <fieldset>
+      <legend>Cifrado</legend>
+      <label for="mensaje">Ingrese el mensaje a cifrar</label><br>
+      <textarea name="mensaje" id="mensaje" cols="30" rows="10" required></textarea><br>
+      <label for="clave">Ingrese la <i>palabra clave</i>: </label><br>
+      <input type="text" name="clave" id="clave" required><br>
+      <input type="submit" value="Enviar">
+    </fieldset>
+  </form>
+  <form action="../dynamics/actividad9_2.php" method="post">
+    <fieldset>
+      <legend>Decifrado</legend>
+      <label for="mensaje">Ingrese el mensaje a cifrar</label><br>
+      <textarea name="mensaje" id="mensaje" cols="30" rows="10" required></textarea><br>
+      <label for="clave">Ingrese la <i>palabra clave</i>: </label><br>
+      <input type="text" name="clave" id="clave" required><br>
+      <input type="submit" value="Enviar">
+    </fieldset>
+  </form>
+</body>
+</html>
